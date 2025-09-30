@@ -36,7 +36,7 @@ quickly and efficiently.
 ## Trial evaluation
 
 A Customer ID is required for the Effects SDK.
-To receive a new trial Customer ID, please fill out the contact form on the [effectssdk.ai](https://effectssdk.ai/request-trial) website.
+To receive a new trial Customer ID, please fill out the contact form on the [effectssdk.ai](https://effectssdk.ai/cp/registration) website.
 
 ## Requirements
 
@@ -45,13 +45,12 @@ To receive a new trial Customer ID, please fill out the contact form on the [eff
 
 ## Setup
 
-1. Download SDK aar file
-2. Add Dependency
-   * Include the SDK in your app-level `build.gradle.kts`:
-
+Add this line to your build.gradle file (please check the actual version here)
 ```kotlin
-implementation(files("libs/Audio-effects-sdk-v.$version.aar"))
+implementation("ai.effectssdk:audio:+")
 ```
+or include it as local aar if you use some specific version 
+(you can find archive with aar and demo app [here](https://github.com/EffectsSDK/audio-effects-sdk-android/releases)).
 
 ## Usage
 
@@ -118,7 +117,7 @@ audioSdkFactory.release()
 
 ## Documentation
 
-[Code sample](samples/SampleFragment.kt)
+[Code sample](examples/SampleFragment.kt)
 
 [API reference](reference/index.md)
 
