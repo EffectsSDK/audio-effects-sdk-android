@@ -45,7 +45,7 @@ To receive a new trial Customer ID, please fill out the contact form on the [eff
 
 ## Setup
 
-Add this line to your build.gradle file (please check the actual version here)
+Add this line to your build.gradle file (please check the actual version [here](https://github.com/EffectsSDK/audio-effects-sdk-android/releases))
 ```kotlin
 implementation("ai.effectssdk:audio:+")
 ```
