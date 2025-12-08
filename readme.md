@@ -45,11 +45,14 @@ To receive a new trial Customer ID, please fill out the contact form on the [eff
 
 ## Setup
 
-Add this line to your build.gradle file (please check the actual version [here](https://github.com/EffectsSDK/audio-effects-sdk-android/releases))
+Add this line to your build.gradle file (please check the actual
+version [here](https://github.com/EffectsSDK/audio-effects-sdk-android/releases))
+
 ```kotlin
 implementation("ai.effectssdk:audio:+")
 ```
-or include it as local aar if you use some specific version 
+
+or include it as local aar if you use some specific version
 (you can find archive with aar and demo app [here](https://github.com/EffectsSDK/audio-effects-sdk-android/releases)).
 
 ## Usage
@@ -71,7 +74,7 @@ or include it as local aar if you use some specific version
 ### Create SDK factory instance
 
 ```kotlin
-val audioSdkFactory = AudioEffectsSDK.getAudioSdkFactory()
+val audioSdkFactory = AudioEffectsSDK.getAudioSdkFactory(context)
 ```
 
 ### Call auth method for sdk object creation access
@@ -113,6 +116,14 @@ val result = audioPipeline.process(yourAudioData)
 ```kotlin
 audioPipeline.release()
 audioSdkFactory.release()
+```
+
+## Migration to version 1.9.x
+
+Add context to getAudioSdkFactory call
+
+```kotlin
+AudioEffectsSDK.getAudioSdkFactory(context)
 ```
 
 ## Documentation
