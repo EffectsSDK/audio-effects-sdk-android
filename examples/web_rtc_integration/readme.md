@@ -83,3 +83,28 @@ public void process(final int numBands, final int numFrames, final ByteBuffer by
 }
 
 ```
+
+### How to turn off webRTC effects
+
+#### Set MediaConstraints
+
+```kotlin
+private fun audioSourceConstraints(): MediaConstraints {
+    //bool to string, WEBRTC_AUDIO_PROCESSING_ENABLED must be false
+    val enabled = WEBRTC_AUDIO_PROCESSING_ENABLED.toString()
+    return MediaConstraints().apply {
+        mandatory.add(MediaConstraints.KeyValuePair("googEchoCancellation", enabled))
+        mandatory.add(MediaConstraints.KeyValuePair("googAutoGainControl", enabled))
+        mandatory.add(MediaConstraints.KeyValuePair("googNoiseSuppression", enabled))
+        mandatory.add(MediaConstraints.KeyValuePair("googHighpassFilter", enabled))
+        mandatory.add(MediaConstraints.KeyValuePair("googTypingNoiseDetection", enabled))
+    }
+}
+```
+
+#### Create and use AudioSource
+
+```kotlin
+audioSource = peerConnectionFactory?.createAudioSource(audioSourceConstraints())
+yourMediaStream?.addTrack(peerConnectionFactory?.createAudioTrack("LOCAL_MS_AT", audioSource))
+```
